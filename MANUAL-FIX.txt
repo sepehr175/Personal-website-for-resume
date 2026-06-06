@@ -1,0 +1,70 @@
+════════════════════════════════════════════════════════
+  راه حل دستی - کپی پیست این دستورات
+════════════════════════════════════════════════════════
+
+مرحله 1: پیدا کردن Username
+─────────────────────────────
+1. برو به: https://github.com/login
+2. لاگین کن با:
+   Email: sphr89023@gmail.com
+   Password: 1387skma
+3. Username شما بالا سمت راسته (مثلاً: sepehr175)
+4. کپی کن username رو!
+
+
+مرحله 2: درست کردن Remote
+─────────────────────────────
+# پاک کن remote قدیمی
+git remote remove origin
+
+# اضافه کن remote جدید
+# ⚠️ عوض کن YOUR_USERNAME رو با username واقعیت!
+git remote add origin https://github.com/YOUR_USERNAME/Personal-website-for-resume.git
+
+# چک کن درست شد
+git remote -v
+
+
+مرحله 3: ساخت Repository
+─────────────────────────────
+1. برو به: https://github.com/new
+2. تنظیمات:
+   - Repository name: Personal-website-for-resume
+   - Public ✅
+   - بدون README
+3. کلیک: Create repository
+
+
+مرحله 4: ساخت Token
+─────────────────────────────
+1. برو به: https://github.com/settings/tokens/new
+2. تنظیمات:
+   - Note: Portfolio Upload
+   - Expiration: 90 days
+   - Scopes: فقط repo ✅
+3. Generate token
+4. کپی کن token رو!
+
+
+مرحله 5: Push
+─────────────────────────────
+git push -u origin main
+
+وقتی از password می‌پرسه:
+- Username: YOUR_USERNAME (همون که پیدا کردی)
+- Password: [token که کپی کردی]
+
+
+════════════════════════════════════════════════════════
+  مثال واقعی (فرض کن username شما sepehr175 هست):
+════════════════════════════════════════════════════════
+
+git remote remove origin
+git remote add origin https://github.com/sepehr175/Personal-website-for-resume.git
+git remote -v
+git push -u origin main
+
+Username: sepehr175
+Password: ghp_xxxxxxxxxxxxxxxxxxxx (token)
+
+════════════════════════════════════════════════════════

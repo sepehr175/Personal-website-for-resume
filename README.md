@@ -1,323 +1,197 @@
-# 🎨 Personal Website for Resume
+# 🚀 Sepehr's Portfolio - Vercel Ready
 
-A modern, animated portfolio website built with React and Node.js, featuring seamless Telegram bot integration for the contact form.
-
-[![React](https://img.shields.io/badge/React-18.0+-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-18.0+-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-4.18+-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
-[![Telegram](https://img.shields.io/badge/Telegram-Bot_API-26A5E4?style=flat&logo=telegram&logoColor=white)](https://core.telegram.org/bots/api)
-
----
+Modern portfolio website with React frontend and Telegram contact form integration, optimized for Vercel deployment.
 
 ## ✨ Features
 
-- 🎨 **Modern Animated UI** - Smooth transitions and interactive elements
-- 📱 **Fully Responsive** - Works perfectly on all devices
-- 💬 **Telegram Integration** - Contact form messages sent directly to Telegram
-- 🔄 **Auto Retry** - 3 attempts with exponential backoff
-- 💾 **Local Fallback** - Messages saved locally if Telegram is unavailable
-- 🔒 **VLESS Proxy Support** - Built-in support for bypassing filtering
-- 🌐 **Multi-language** - Persian and English documentation
+- 🎨 Beautiful, responsive React portfolio
+- 📱 Contact form with direct Telegram integration
+- ☁️ Serverless architecture (Vercel Functions)
+- 🔒 Secure environment variables handling
+- ⚡ Fast deployment and automatic CI/CD
+- 🌐 Custom domain support
 
----
+## 📁 Project Structure
+
+```
+sepehr-portfolio/
+├── api/
+│   └── send-message.js       # Vercel Serverless Function (Telegram API)
+├── frontend/
+│   ├── src/
+│   │   ├── Portfolio.jsx     # Main React component
+│   │   └── index.js          # Entry point
+│   ├── public/
+│   │   └── index.html
+│   └── package.json
+├── vercel.json               # Vercel configuration
+├── .gitignore
+├── .env.example
+└── package.json
+```
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 1. Prerequisites
 
-- Node.js 18+ installed
-- Xray-core (for proxy functionality)
-- Telegram bot token and chat ID
+- Node.js 16+
+- Vercel account (free)
+- GitHub account
+- Telegram bot token (from [@BotFather](https://t.me/BotFather))
+- Your Telegram Chat ID (from [@userinfobot](https://t.me/userinfobot))
 
-### Installation
+### 2. Local Development
 
 ```bash
-# Clone the repository
-git clone https://github.com/[your-username]/Personal-website-for-resume.git
-cd Personal-website-for-resume
-
-# Install backend dependencies
-cd backend
+# Install dependencies
+cd frontend
 npm install
 
-# Install frontend dependencies
-cd ../frontend
-npm install
-```
-
-### Running the Application
-
-**Option 1: Automatic (Windows)**
-
-```bash
-cd backend
-./START-ALL.bat
-```
-
-Then in a new terminal:
-```bash
-cd frontend
+# Start development server
 npm start
 ```
 
-**Option 2: Manual**
+Open [http://localhost:3000](http://localhost:3000)
+
+### 3. Deploy to Vercel
+
+#### Option A: Using Vercel CLI
 
 ```bash
-# Terminal 1: Xray Proxy
-cd backend
-./start-xray.bat
+# Install Vercel CLI
+npm i -g vercel
 
-# Terminal 2: Backend
-cd backend
-npm start
-
-# Terminal 3: Frontend
-cd frontend
-npm start
+# Deploy
+vercel
 ```
 
-Visit `http://localhost:3000` and test the contact form!
+#### Option B: Using GitHub Integration (Recommended)
 
----
-
-## 📂 Project Structure
-
-```
-Personal-website-for-resume/
-├── backend/                    # Node.js backend
-│   ├── server.js              # Main server with SOCKS5 proxy
-│   ├── xray-config.json       # VLESS configuration
-│   ├── start-xray.bat         # Xray launcher
-│   └── START-ALL.bat          # Complete setup launcher
-│
-├── frontend/                   # React frontend
-│   ├── src/
-│   │   ├── index.js
-│   │   └── Portfolio.jsx      # Main component
-│   └── public/
-│
-└── Documentation/              # Persian guides
-    ├── WORKING-SOLUTION-FA.md
-    ├── SETUP-XRAY-FA.md
-    └── ...
+1. Push to GitHub:
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git push -u origin main
 ```
 
----
+2. Go to [vercel.com](https://vercel.com)
+3. Click **New Project**
+4. Import your GitHub repository
+5. Configure build settings:
+   - **Build Command**: `cd frontend && npm install && npm run build`
+   - **Output Directory**: `frontend/build`
+   - **Install Command**: `npm install`
 
-## 🔧 Configuration
+6. Add Environment Variables:
+   - `TELEGRAM_BOT_TOKEN`: Your bot token from @BotFather
+   - `TELEGRAM_CHAT_ID`: Your chat ID
 
-### Backend Configuration
+7. Click **Deploy**
 
-Edit `backend/server.js`:
+## 🔧 Environment Variables
 
-```javascript
-const TG_BOT_TOKEN = "YOUR_BOT_TOKEN";
-const TG_CHAT_ID = "YOUR_CHAT_ID";
-const PORT = process.env.PORT || 3001;
-```
+Create these in Vercel Dashboard → Project Settings → Environment Variables:
 
-### VLESS Configuration
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `TELEGRAM_BOT_TOKEN` | Bot token from @BotFather | `1234567890:ABCdef...` |
+| `TELEGRAM_CHAT_ID` | Your Telegram user ID | `123456789` |
 
-Edit `backend/xray-config.json`:
+⚠️ **Never commit these values to Git!**
 
-```json
-{
-  "outbounds": [{
-    "protocol": "vless",
-    "settings": {
-      "vnext": [{
-        "address": "YOUR_SERVER",
-        "port": 443,
-        "users": [{
-          "id": "YOUR_UUID"
-        }]
-      }]
-    }
-  }]
-}
-```
+## 📝 Configuration
 
----
+### API Endpoint
 
-## 🎯 How It Works
+The contact form automatically uses:
+- **Development**: `http://localhost:3000/api/send-message`
+- **Production**: `https://your-domain.vercel.app/api/send-message`
 
-```
-┌─────────────┐
-│   Frontend  │  Contact form submission
-│ (React App) │
-└──────┬──────┘
-       │ POST /send-message
-       ↓
-┌─────────────────┐
-│    Backend      │  Node.js + Express
-│  (with SOCKS5)  │
-└──────┬──────────┘
-       │ SOCKS5 Proxy
-       ↓
-┌─────────────────┐
-│      Xray       │  Proxy server
-│  (VLESS/WS/TLS) │
-└──────┬──────────┘
-       │
-       ↓
-┌─────────────────┐
-│  Telegram API   │  Bot sends message
-└──────┬──────────┘
-       │
-       ↓
-   ✅ Your Chat!
-```
+No manual configuration needed! The frontend uses `window.location.origin`.
 
----
+### Custom Domain
+
+1. Go to Vercel Dashboard → Project → Settings → Domains
+2. Add your custom domain
+3. Update DNS records as instructed
 
 ## 🧪 Testing
 
-### Test SOCKS5 Connection
+### Test the API locally:
 
 ```bash
-curl --socks5 127.0.0.1:10808 https://api.telegram.org
+curl -X POST http://localhost:3000/api/send-message \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test","email":"test@example.com","message":"Hello!"}'
 ```
 
-### Test Direct Message Send
+### Test the deployed API:
 
 ```bash
-cd backend
-node test-direct-socks5.js
+curl -X POST https://your-site.vercel.app/api/send-message \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test","email":"test@example.com","message":"Hello from Vercel!"}'
 ```
 
-This sends a test message directly to your Telegram chat.
+## 🐛 Troubleshooting
 
----
+### Build fails on Vercel
 
-## 📖 Documentation
+- Check build logs in Vercel Dashboard
+- Ensure `frontend/package.json` is valid
+- Try clearing build cache: Settings → General → Clear Cache
 
-For detailed setup instructions in Persian:
+### Telegram messages not received
 
-- **Quick Start**: `README-SIMPLE-FA.md`
-- **Complete Guide**: `WORKING-SOLUTION-FA.md`
-- **Xray Setup**: `SETUP-XRAY-FA.md`
-- **GitHub Upload**: `UPLOAD-TO-GITHUB.md`
+1. Verify bot token and chat ID in Environment Variables
+2. Make sure you've sent `/start` to your bot
+3. Test the bot token:
+   ```
+   https://api.telegram.org/bot<YOUR_TOKEN>/getMe
+   ```
 
----
+### 404 on API endpoint
 
-## 🛠️ Tech Stack
+- Ensure `api/send-message.js` exists in root
+- Check `vercel.json` routing configuration
+- Redeploy the project
 
-### Frontend
-- React 18
-- Inline CSS with animations
-- Responsive design
+## 📚 Documentation
 
-### Backend
-- Node.js + Express
-- Telegram Bot API
-- SOCKS5 Proxy Agent
-- Local fallback storage
+- **Full Farsi Guide**: [VERCEL-DEPLOY-GUIDE-FA.md](./VERCEL-DEPLOY-GUIDE-FA.md)
+- **Vercel Docs**: [vercel.com/docs](https://vercel.com/docs)
+- **Telegram Bot API**: [core.telegram.org/bots/api](https://core.telegram.org/bots/api)
 
-### Proxy
-- Xray-core
-- VLESS protocol
-- WebSocket + TLS transport
+## 🔄 Updating
 
----
-
-## 🌟 Features in Detail
-
-### Contact Form
-- Real-time validation
-- Loading states
-- Success/error messages
-- Auto-clear on success
-
-### Telegram Integration
-- Direct message sending
-- Retry mechanism (3 attempts)
-- Exponential backoff
-- Local message storage as fallback
-
-### Proxy Support
-- SOCKS5 proxy via Xray
-- VLESS protocol support
-- Automatic connection handling
-- Network filtering bypass
-
----
-
-## 🚀 Deployment
-
-### Frontend (Vercel)
+When you push changes to GitHub, Vercel automatically rebuilds and deploys:
 
 ```bash
-cd frontend
-vercel --prod
+git add .
+git commit -m "Update portfolio"
+git push
 ```
 
-### Backend (Railway)
+## 📊 Monitoring
 
-```bash
-cd backend
-railway up
-```
-
-Update `frontend/src/Portfolio.jsx`:
-```javascript
-const BACKEND_URL = "https://your-backend-url.railway.app";
-```
-
----
-
-## 🔒 Security Notes
-
-- Never commit `.env` files
-- Keep your bot token private
-- Use environment variables for production
-- The `messages/` folder is gitignored
-- Xray binary is not included in repo
-
----
-
-## 📝 Environment Variables
-
-Create `.env` file in `backend/`:
-
-```env
-TG_BOT_TOKEN=your_bot_token
-TG_CHAT_ID=your_chat_id
-SOCKS_PROXY=socks5://127.0.0.1:10808
-PORT=3001
-```
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
-
-## 📞 Contact
-
-- **Telegram**: [@S0phr](https://t.me/S0phr)
-- **Instagram**: [@sepcode1](https://www.instagram.com/sepcode1)
-- **GitHub**: [sepehr175](https://github.com/sepehr175)
-- **LinkedIn**: [Sepehr Karimi](https://www.linkedin.com/in/sepehr-karimi-53a29837b)
-
----
+View analytics in Vercel Dashboard:
+- Page views
+- API calls
+- Performance metrics
+- Error logs
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+MIT License - feel free to use this for your own portfolio!
+
+## 🤝 Contact
+
+- **Telegram**: [@S0phr](https://t.me/S0phr)
+- **Instagram**: [@sepcode1](https://instagram.com/sepcode1)
+- **GitHub**: [@sepehr175](https://github.com/sepehr175)
 
 ---
 
-## 🙏 Acknowledgments
-
-- Telegram Bot API
-- Xray-core project
-- React team
-- Express.js team
-
----
-
-**Made with ❤️ by Sepehr Karimi**
-
-⭐ Star this repo if you find it helpful!
+Built with ❤️ using React & Vercel

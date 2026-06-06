@@ -527,9 +527,10 @@ const Testimonials = () => {
 };
 
 // ── Config ────────────────────────────────────────────────────────────────────
-// If you deploy the backend online, replace this URL with your live URL.
-// Example: "https://sepehr-portfolio-backend.up.railway.app"
-const BACKEND_URL = "http://localhost:3001";
+// برای Vercel: API به صورت خودکار روی /api/send-message قرار می‌گیره
+// در حالت Development: http://localhost:3000/api/send-message
+// در حالت Production: https://your-domain.vercel.app/api/send-message
+const BACKEND_URL = window.location.origin; // از همون دامین فعلی استفاده می‌کنه
 
 const SOCIAL_LINKS = [
   { icon: "✈",  label: "Telegram",  href: "https://t.me/S0phr",                                        color: "#29b6f6" },
@@ -550,7 +551,7 @@ const Contact = () => {
     setErrMsg("");
 
     try {
-      const res  = await fetch(`${BACKEND_URL}/send-message`, {
+      const res  = await fetch(`${BACKEND_URL}/api/send-message`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify(form),

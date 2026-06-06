@@ -8,8 +8,10 @@ const { SocksProxyAgent } = require("socks-proxy-agent");
 const app = express();
 
 // ── Telegram Credentials ──────────────────────────────────────────────────────
-const TG_BOT_TOKEN = "8912565501:AAHX22IYXHcwhPv2bo1zwkKxZGwqSyYgVcM";
-const TG_CHAT_ID = "5176532576";
+// 🔴 هشدار: این فایل فقط برای Development محلی هست!
+// 🔴 روی Vercel از api/send-message.js استفاده میشه!
+const TG_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || "YOUR_TOKEN_HERE";
+const TG_CHAT_ID = process.env.TELEGRAM_CHAT_ID || "YOUR_CHAT_ID_HERE";
 const PORT = process.env.PORT || 3001;
 
 // ── SOCKS5 Proxy Configuration (از کانفیگ VLESS شما) ───────────────────────
