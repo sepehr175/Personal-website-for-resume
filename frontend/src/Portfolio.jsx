@@ -1618,25 +1618,125 @@ const BACKEND_URL = window.location.origin; // از همون دامین فعلی
 
 const SOCIAL_LINKS = [
   {
-    icon: "✈",
+    icon: (
+      <span
+        style={{
+          width: 20,
+          height: 20,
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ width: 20, height: 20 }}
+        >
+          <path d="M22 2 11 13" />
+          <path d="m22 2-7 20-4-9-9-4 20-7Z" />
+        </svg>
+      </span>
+    ),
     label: "Telegram",
     href: "https://t.me/S0phr",
     color: "#29b6f6",
   },
   {
-    icon: "📸",
+    icon: (
+      <span
+        style={{
+          width: 20,
+          height: 20,
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ width: 20, height: 20 }}
+        >
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+          <circle cx="12" cy="12" r="4" />
+          <path d="M17.5 6.5h.01" />
+        </svg>
+      </span>
+    ),
     label: "Instagram",
     href: "https://www.instagram.com/sepcode1?igsh=dXZkb29iY3VkczMw",
     color: "#e1306c",
   },
   {
-    icon: "⌥",
+    icon: (
+      <span
+        style={{
+          width: 20,
+          height: 20,
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ width: 20, height: 20 }}
+        >
+          <path d="M9 19c-5 1.5-5-2.5-7-3" />
+          <path d="M16 19c0 1.38-.84 2.5-2 2.5s-2-1.12-2-2.5" />
+          <path d="M12 7c-3.31 0-6 2.69-6 6 0 1.92.95 3.63 2.4 4.72" />
+          <path d="M12 7c3.31 0 6 2.69 6 6 0 1.92-.95 3.63-2.4 4.72" />
+          <path d="M8 9.5c.5-.34 1.16-.5 1.83-.5" />
+          <path d="M15 9.5c-.5-.34-1.16-.5-1.83-.5" />
+        </svg>
+      </span>
+    ),
     label: "GitHub",
     href: "https://github.com/sepehr175",
     color: "#94a3b8",
   },
   {
-    icon: "◈",
+    icon: (
+      <span
+        style={{
+          width: 20,
+          height: 20,
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ width: 20, height: 20 }}
+        >
+          <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
+          <path d="M8 11h3v9" />
+          <path d="M8 8h.01" />
+          <path d="M16 11h3v5" />
+          <path d="M16 8h.01" />
+        </svg>
+      </span>
+    ),
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/sepehr-karimi-53a29837b",
     color: "#0a66c2",
@@ -1766,6 +1866,7 @@ const Contact = () => {
         </div>
 
         <div
+          className="contact-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -1775,6 +1876,7 @@ const Contact = () => {
         >
           {/* ── Left info panel ── */}
           <div
+            className="contact-left"
             style={{
               transform: inView ? "translateY(0)" : "translateY(20px)",
               opacity: inView ? 1 : 0,
@@ -1804,6 +1906,7 @@ const Contact = () => {
               sent directly to my Telegram — I usually reply within a few hours.
             </p>
             <div
+              className="contact-links"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -1813,25 +1916,138 @@ const Contact = () => {
             >
               {[
                 {
-                  icon: "✈",
+                  icon: (
+                    <span
+                      style={{
+                        width: 20,
+                        height: 20,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ width: 20, height: 20 }}
+                      >
+                        <path d="M22 2 11 13" />
+                        <path d="m22 2-7 20-4-9-9-4 20-7Z" />
+                      </svg>
+                    </span>
+                  ),
                   label: "Telegram",
                   val: "@S0phr",
                   href: "https://t.me/S0phr",
                 },
                 {
-                  icon: "📸",
+                  icon: (
+                    <span
+                      style={{
+                        width: 20,
+                        height: 20,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ width: 20, height: 20 }}
+                      >
+                        <rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="5"
+                          ry="5"
+                        />
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M17.5 6.5h.01" />
+                      </svg>
+                    </span>
+                  ),
                   label: "Instagram",
                   val: "@sepcode1",
                   href: "https://www.instagram.com/sepcode1?igsh=dXZkb29iY3VkczMw",
                 },
                 {
-                  icon: "⌥",
+                  icon: (
+                    <span
+                      style={{
+                        width: 20,
+                        height: 20,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ width: 20, height: 20 }}
+                      >
+                        <path d="M9 19c-5 1.5-5-2.5-7-3" />
+                        <path d="M16 19c0 1.38-.84 2.5-2 2.5s-2-1.12-2-2.5" />
+                        <path d="M12 7c-3.31 0-6 2.69-6 6 0 1.92.95 3.63 2.4 4.72" />
+                        <path d="M12 7c3.31 0 6 2.69 6 6 0 1.92-.95 3.63-2.4 4.72" />
+                        <path d="M8 9.5c.5-.34 1.16-.5 1.83-.5" />
+                        <path d="M15 9.5c-.5-.34-1.16-.5-1.83-.5" />
+                      </svg>
+                    </span>
+                  ),
                   label: "GitHub",
                   val: "sepehr175",
                   href: "https://github.com/sepehr175",
                 },
                 {
-                  icon: "◈",
+                  icon: (
+                    <span
+                      style={{
+                        width: 20,
+                        height: 20,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ width: 20, height: 20 }}
+                      >
+                        <rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="2"
+                          ry="2"
+                        />
+                        <path d="M6 9h4v12H6z" />
+                        <path d="M6 7h4V5H6z" />
+                        <path d="M16 11c1.66 0 3 1.34 3 3v7h-4v-6c0-1.1-.9-2-2-2s-2 .9-2 2v6h-4v-12h4v2.5c.9-1.5 3-1.6 4-1.2" />
+                      </svg>
+                    </span>
+                  ),
                   label: "LinkedIn",
                   val: "Sepehr Karimi",
                   href: "https://www.linkedin.com/in/sepehr-karimi-53a29837b",
@@ -1863,7 +2079,7 @@ const Contact = () => {
                       "rgba(255,255,255,0.07)";
                   }}
                 >
-                  <span style={{ fontSize: 20 }}>{item.icon}</span>
+                  {item.icon}
                   <div>
                     <div
                       style={{
@@ -1888,6 +2104,7 @@ const Contact = () => {
 
           {/* ── Right form panel ── */}
           <div
+            className="contact-right"
             style={{
               transform: inView ? "translateY(0)" : "translateY(20px)",
               opacity: inView ? 1 : 0,
@@ -1936,10 +2153,12 @@ const Contact = () => {
             )}
 
             <form
+              className="contact-form"
               onSubmit={submit}
               style={{ display: "flex", flexDirection: "column", gap: 16 }}
             >
               <div
+                className="contact-inputs"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
@@ -1982,6 +2201,7 @@ const Contact = () => {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, message: e.target.value }))
                 }
+                className="contact-message"
                 style={{ ...inputStyle, resize: "vertical" }}
                 onFocus={(e) => (e.target.style.borderColor = "#4DA6FF")}
                 onBlur={(e) =>
@@ -1991,6 +2211,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status === "sending"}
+                className="contact-submit"
                 style={{
                   padding: "15px",
                   background: btnBg,
@@ -2184,6 +2405,7 @@ const Navbar = ({ scrollTo }) => {
   }, []);
   return (
     <nav
+      className="main-nav"
       style={{
         position: "fixed",
         top: 0,
@@ -2201,6 +2423,7 @@ const Navbar = ({ scrollTo }) => {
       }}
     >
       <div
+        className="logo"
         style={{
           fontSize: 20,
           fontWeight: 700,
@@ -2212,45 +2435,112 @@ const Navbar = ({ scrollTo }) => {
       >
         dev<span style={{ color: "#4DA6FF" }}>.</span>io
       </div>
-      <div style={{ display: "flex", gap: 32 }} className="desk-nav">
-        {NAV_LINKS.map((l) => (
-          <button
-            key={l}
-            onClick={() => scrollTo(l.toLowerCase())}
-            style={{
-              background: "none",
-              border: "none",
-              color: "#94a3b8",
-              fontSize: 13,
-              cursor: "pointer",
-              fontWeight: 500,
-              fontFamily: "inherit",
-              letterSpacing: "0.02em",
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "#f1f5f9")}
-            onMouseLeave={(e) => (e.target.style.color = "#94a3b8")}
-          >
-            {l}
-          </button>
-        ))}
-      </div>
-      <button
-        onClick={() => scrollTo("contact")}
-        style={{
-          padding: "9px 22px",
-          background: "linear-gradient(135deg,#4DA6FF,#7C6FFF)",
-          border: "none",
-          borderRadius: 30,
-          color: "#fff",
-          fontSize: 13,
-          fontWeight: 600,
-          cursor: "pointer",
-          fontFamily: "inherit",
-        }}
+
+      <div
+        className="nav-content"
+        style={{ display: "flex", gap: 32, alignItems: "center" }}
       >
-        Hire Me
-      </button>
+        <div style={{ display: "flex", gap: 32 }} className="desk-nav">
+          {NAV_LINKS.map((l) => (
+            <button
+              key={l}
+              onClick={() => scrollTo(l.toLowerCase())}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#94a3b8",
+                fontSize: 13,
+                cursor: "pointer",
+                fontWeight: 500,
+                fontFamily: "inherit",
+                letterSpacing: "0.02em",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={(e) => (e.target.style.color = "#f1f5f9")}
+              onMouseLeave={(e) => (e.target.style.color = "#94a3b8")}
+            >
+              {l}
+            </button>
+          ))}
+        </div>
+
+        <button
+          className="hire-btn"
+          onClick={() => scrollTo("contact")}
+          style={{
+            padding: "9px 22px",
+            background: "linear-gradient(135deg,#4DA6FF,#7C6FFF)",
+            border: "none",
+            borderRadius: 30,
+            color: "#fff",
+            fontSize: 13,
+            fontWeight: 600,
+            cursor: "pointer",
+            fontFamily: "inherit",
+          }}
+        >
+          Hire Me
+        </button>
+
+        {/* Mobile menu toggle */}
+        <button
+          aria-label="Menu"
+          onClick={() => setOpen((s) => !s)}
+          className="mobile-menu-btn"
+          style={{
+            display: "none",
+            background: "none",
+            border: "none",
+            color: "#94a3b8",
+            fontSize: 20,
+            cursor: "pointer",
+            marginLeft: 8,
+          }}
+        >
+          ☰
+        </button>
+      </div>
+
+      {/* Mobile dropdown */}
+      {open && (
+        <div
+          className="mobile-nav-dropdown"
+          style={{
+            position: "absolute",
+            top: 64,
+            left: 0,
+            right: 0,
+            background: "rgba(2,8,23,0.95)",
+            borderTop: "1px solid rgba(255,255,255,0.04)",
+            zIndex: 1001,
+            padding: 16,
+            display: "flex",
+            flexDirection: "column",
+            gap: 8,
+          }}
+        >
+          {NAV_LINKS.map((l) => (
+            <button
+              key={l}
+              onClick={() => {
+                setOpen(false);
+                scrollTo(l.toLowerCase());
+              }}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#cbd5e1",
+                textAlign: "left",
+                padding: "12px 8px",
+                fontSize: 16,
+                cursor: "pointer",
+              }}
+            >
+              {l}
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
@@ -2353,6 +2643,123 @@ export default function Portfolio() {
         ::-webkit-scrollbar-track { background:#020817 }
         ::-webkit-scrollbar-thumb { background:rgba(77,166,255,0.3); border-radius:2px }
         section { scroll-margin-top: 80px; }
+        /* Mobile-only contact layout adjustments */
+        @media (max-width: 640px) {
+          #contact .contact-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 24px;
+            align-items: center;
+          }
+          #contact .contact-left {
+            width: 100%;
+            max-width: 760px;
+            text-align: center;
+          }
+          #contact .contact-links {
+            flex-direction: row !important;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+          }
+          #contact .contact-right {
+            width: 100%;
+            max-width: 820px;
+          }
+          #contact .contact-form {
+            width: 96%;
+            padding: 18px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(2,8,23,0.6);
+            background: rgba(255,255,255,0.02);
+          }
+          #contact .contact-inputs {
+            grid-template-columns: 1fr !important;
+            width: 100%;
+          }
+          /* move message textarea above inputs */
+          #contact .contact-message {
+            order: -1;
+            min-height: 160px;
+            margin-bottom: 6px;
+          }
+          /* make submit full width and larger on mobile */
+          #contact .contact-submit {
+            width: 100% !important;
+            padding: 16px !important;
+            font-size: 16px !important;
+            border-radius: 12px !important;
+          }
+        }
+
+        /* Navbar responsive adjustments */
+        @media (max-width: 900px) {
+          .main-nav {
+            padding: 12px 18px;
+          }
+          .main-nav .desk-nav {
+            display: none !important;
+          }
+          .main-nav .mobile-menu-btn {
+            display: inline-block !important;
+            color: #cbd5e1;
+          }
+          .main-nav button[aria-label="Menu"] {
+            font-size: 22px;
+          }
+          .main-nav > div {
+            gap: 12px;
+          }
+        }
+
+        @media (min-width: 901px) and (max-width: 1100px) {
+          /* Tablet: reduce gap and allow wrapping to avoid overlap */
+          .main-nav {
+            padding: 14px 22px;
+            justify-content: space-between;
+          }
+          .main-nav .logo {
+            position: static;
+            left: auto;
+          }
+          .main-nav .nav-content {
+            gap: 18px;
+          }
+          .main-nav .desk-nav {
+            gap: 18px;
+          }
+          .main-nav .hire-btn {
+            padding: 8px 14px;
+          }
+        }
+
+        @media (min-width: 1101px) {
+          .main-nav {
+            justify-content: space-between;
+            position: relative;
+          }
+          .main-nav .logo {
+            position: absolute;
+            left: 32px;
+          }
+          .main-nav .nav-content {
+            width: 100%;
+            position: relative;
+            justify-content: center;
+          }
+          .main-nav .desk-nav {
+            margin: 0 auto;
+            gap: 28px;
+          }
+          .main-nav .hire-btn {
+            position: absolute;
+            right: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 9px 22px;
+          }
+        }
+
       `}</style>
 
       {loading && <Loader onDone={() => setLoading(false)} />}
