@@ -2751,21 +2751,56 @@ export default function Portfolio() {
 
         /* Navbar responsive adjustments */
         @media (max-width: 900px) {
+          body {
+            overflow-x: hidden !important;
+          }
           .main-nav {
-            padding: 12px 18px;
+            padding: 10px 12px !important;
+            overflow: hidden !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
+          }
+          .main-nav .logo {
+            font-size: 16px !important;
+            flex-shrink: 0;
           }
           .main-nav .desk-nav {
             display: none !important;
           }
+          .main-nav .nav-content {
+            gap: 8px !important;
+            min-width: 0 !important;
+            flex-shrink: 1;
+            justify-content: flex-end;
+            box-sizing: border-box !important;
+          }
+          .main-nav .nav-content > * {
+            min-width: 0 !important;
+          }
           .main-nav .mobile-menu-btn {
             display: inline-block !important;
-            color: #cbd5e1;
+            color: #cbd5e1 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            font-size: 18px !important;
+            flex-shrink: 0;
           }
           .main-nav button[aria-label="Menu"] {
-            font-size: 22px;
+            font-size: 18px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+          .main-nav .hire-btn {
+            padding: 7px 10px !important;
+            font-size: 12px !important;
+            white-space: nowrap !important;
+            flex-shrink: 1;
+            min-width: 0 !important;
           }
           .main-nav > div {
-            gap: 12px;
+            gap: 8px !important;
+            min-width: 0 !important;
           }
         }
 
