@@ -382,6 +382,7 @@ const TypingText = ({ words }) => {
   }, [char, del, idx, words]);
   return (
     <span
+      className="typing-text"
       style={{
         color: "#4DA6FF",
         display: "inline-block",
@@ -864,6 +865,7 @@ const Hero = ({ scrollTo }) => {
         </p>
 
         <div
+          className="hero-actions"
           style={{
             display: "flex",
             gap: 16,
@@ -2689,6 +2691,50 @@ export default function Portfolio() {
             padding: 16px !important;
             font-size: 16px !important;
             border-radius: 12px !important;
+          }
+        }
+
+        @media (max-width: 450px) {
+          body {
+            overflow-x: hidden;
+          }
+          section {
+            padding-left: 12px !important;
+            padding-right: 12px !important;
+          }
+          #hero {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+          #hero h1 {
+            font-size: clamp(20px, 6vw, 30px) !important;
+            line-height: 1.05 !important;
+            margin-bottom: 16px !important;
+          }
+          #hero p {
+            max-width: 100% !important;
+            font-size: 12px !important;
+            line-height: 1.5 !important;
+          }
+          #hero .typing-text {
+            white-space: nowrap !important;
+            display: inline !important;
+            font-size: 0.95em !important;
+          }
+          #hero .typing-text span {
+            white-space: nowrap !important;
+          }
+          .main-nav {
+            padding: 12px 14px !important;
+          }
+          .main-nav .logo {
+            font-size: 18px !important;
+          }
+          .main-nav .nav-content {
+            gap: 10px !important;
+          }
+          .main-nav .hire-btn {
+            padding: 9px 18px !important;
           }
         }
 
