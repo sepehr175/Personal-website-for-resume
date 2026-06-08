@@ -389,6 +389,10 @@ const TypingText = ({ words }) => {
         whiteSpace: "nowrap",
         overflowWrap: "normal",
         wordBreak: "keep-all",
+        fontFamily: "inherit",
+        fontWeight: 700,
+        WebkitFontSmoothing: "antialiased",
+        MozOsxFontSmoothing: "grayscale",
       }}
     >
       {words[idx].slice(0, char)}
@@ -835,8 +839,10 @@ const Hero = ({ scrollTo }) => {
             lineHeight: 1.1,
             margin: "0 0 20px",
             color: "#f8fafc",
-            fontFamily: "'Syne', sans-serif",
+            fontFamily: "'Syne', 'Segoe UI', Arial, sans-serif",
             letterSpacing: "-0.02em",
+            WebkitFontSmoothing: "antialiased",
+            MozOsxFontSmoothing: "grayscale",
           }}
         >
           Full Stack Developer &<br />
