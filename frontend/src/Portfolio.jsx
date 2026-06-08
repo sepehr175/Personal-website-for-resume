@@ -407,7 +407,7 @@ const TypingText = ({ words }) => {
           opacity: 1,
         }}
       >
-        |
+        {" "}
       </span>
     </span>
   );
