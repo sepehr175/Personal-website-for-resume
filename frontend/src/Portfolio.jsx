@@ -389,8 +389,11 @@ const TypingText = ({ words }) => {
         whiteSpace: "nowrap",
         overflowWrap: "normal",
         wordBreak: "keep-all",
-        fontFamily: "inherit",
+        fontFamily:
+          "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif",
         fontWeight: 700,
+        fontSize: "1em",
+        letterSpacing: "inherit",
         WebkitFontSmoothing: "antialiased",
         MozOsxFontSmoothing: "grayscale",
       }}
@@ -400,10 +403,11 @@ const TypingText = ({ words }) => {
         style={{
           borderRight: "2px solid #4DA6FF",
           marginLeft: 1,
-          animation: "blink 1s steps(2) infinite",
+          animation: "none",
+          opacity: 1,
         }}
       >
-        &#8203;
+        |
       </span>
     </span>
   );
@@ -839,7 +843,8 @@ const Hero = ({ scrollTo }) => {
             lineHeight: 1.1,
             margin: "0 0 20px",
             color: "#f8fafc",
-            fontFamily: "'Syne', 'Segoe UI', Arial, sans-serif",
+            fontFamily:
+              "'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif",
             letterSpacing: "-0.02em",
             WebkitFontSmoothing: "antialiased",
             MozOsxFontSmoothing: "grayscale",
