@@ -2519,7 +2519,7 @@ const Navbar = ({ scrollTo }) => {
         <div
           className="mobile-nav-dropdown"
           style={{
-            position: "absolute",
+            position: "fixed",
             top: 64,
             left: 0,
             right: 0,
@@ -2756,7 +2756,8 @@ export default function Portfolio() {
           }
           .main-nav {
             padding: 10px 12px !important;
-            overflow: hidden !important;
+            overflow-x: hidden !important;
+            overflow-y: visible !important;
             width: 100vw !important;
             max-width: 100vw !important;
             box-sizing: border-box !important;
@@ -2785,6 +2786,7 @@ export default function Portfolio() {
             margin: 0 !important;
             font-size: 18px !important;
             flex-shrink: 0;
+            z-index: 1002;
           }
           .main-nav button[aria-label="Menu"] {
             font-size: 18px !important;
